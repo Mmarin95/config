@@ -1,2 +1,2 @@
-__pychache__/
-nvim/undo/
+.config/qtile/__pychache__/*
+.config/nvim/undo/*
