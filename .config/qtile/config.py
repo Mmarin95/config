@@ -90,7 +90,7 @@ keys = [
     Key([mod, "control", "shift"], "l", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/lock.sh")), desc="Lock Screen"),
     Key([mod], "x", lazy.spawn('dunstctl close-all'), desc="Close all notifications"),
     Key(["control"], "BackSpace", lazy.spawn('dunstctl history-pop'), desc="Display notifications history"),
-Key([mod], "z", lazy.spawn("setxkbmap -option 'caps:ctrl_modifier';xcape -e 'Caps_Lock=Escape' &"), desc="Close all notifications"),
+    Key([mod], "z", lazy.spawn("setxkbmap -option 'caps:ctrl_modifier';xcape -e 'Caps_Lock=Escape' &"), desc="Remap Caps to Ctrl&ESC"),
     # TODO: How to show the mode am I and the options?
     KeyChord([mod], "BackSpace", [
             Key([], "x", lazy.spawn("firefox"))
