@@ -25,13 +25,19 @@
 # SOFTWARE.
 
 import os
-from libqtile import bar, layout, qtile, widget
+import subprocess
+from libqtile import bar, layout, qtile, widget, hook
 from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4"
 terminal = guess_terminal()
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~')
+    subprocess.call([home + '/.config/qtile/scripts/autostart.sh'])
 
 keys = [
     # A list of available commands that can be bound to keys can be found
