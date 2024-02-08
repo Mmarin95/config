@@ -27,7 +27,7 @@
 import os
 import subprocess
 from libqtile import bar, layout, qtile, widget, hook
-from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
+from libqtile.config import Click, Drag, Group, ScratchPad, DropDown, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
@@ -94,7 +94,9 @@ keys = [
         ],
         mode=True,
         name="System"
-            )
+            ),
+      Key([mod, "shift"], 'p', lazy.group['scratchpad'].dropdown_toggle('htop')),
+      Key([mod, "shift"], 't', lazy.group['scratchpad'].dropdown_toggle('term')),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -112,6 +114,8 @@ for vt in range(1, 8):
 
 
 groups = [Group(i) for i in "123456789"]
+
+
 
 for i in groups:
     keys.extend(
@@ -136,6 +140,14 @@ for i in groups:
             #     desc="move focused window to group {}".format(i.name)),
         ]
     )
+
+# TODO: Using urxvtc to connect to the daemon does not work
+scratchpad = ScratchPad("scratchpad", [
+    DropDown("htop", "urxvt -name htop_scratchpad -e htop", x=0.05, y=0.05, width=0.9, height=0.9, opacity=0.8),
+    DropDown("term", "urxvt -name urxvt_scratchpad", x=0.05, y=0.05, width=0.9, height=0.9, opacity=0.8),
+])
+
+groups.append(scratchpad)
 
 layouts = [
     layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
