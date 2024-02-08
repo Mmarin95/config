@@ -166,8 +166,8 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="sans",
-    fontsize=12,
+    font="Inconsolata NF",
+    fontsize=16,
     padding=3,
 )
 extension_defaults = widget_defaults.copy()
