@@ -85,7 +85,10 @@ keys = [
     # TODO: How to show the mode am I and the options?
     KeyChord([mod], "z", [
             Key([], "x", lazy.spawn("firefox"))
-        ])
+        ],
+        mode=True,
+        name="System"
+            )
 ]
 
 # Add key bindings to switch VTs in Wayland.
