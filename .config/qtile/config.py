@@ -26,7 +26,7 @@
 
 import os
 from libqtile import bar, layout, qtile, widget
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile.config import Click, Drag, Group, Key, KeyChord, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
@@ -67,7 +67,7 @@ keys = [
     ),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     # Toggle between different layouts as defined below
-    Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
+    Key([mod], "Tab", lazy.next_layout(), desc="Toggle betwee layouts"),
     Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
     Key(
         [mod],
@@ -82,6 +82,10 @@ keys = [
     
     # My Keybinds
     Key([mod, "control", "shift"], "l", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/lock.sh")), desc="Lock Screen"),
+    # TODO: How to show the mode am I and the options?
+    KeyChord([mod], "z", [
+            Key([], "x", lazy.spawn("firefox"))
+        ])
 ]
 
 # Add key bindings to switch VTs in Wayland.
