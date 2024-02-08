@@ -88,6 +88,8 @@ keys = [
     
     # My Keybinds
     Key([mod, "control", "shift"], "l", lazy.spawn(os.path.expanduser("~/.config/qtile/scripts/lock.sh")), desc="Lock Screen"),
+    Key([mod], "x", lazy.spawn('dunstctl close-all'), desc="Close all notifications"),
+    Key(["control"], "BackSpace", lazy.spawn('dunstctl history-pop'), desc="Display notifications history"),
     # TODO: How to show the mode am I and the options?
     KeyChord([mod], "z", [
             Key([], "x", lazy.spawn("firefox"))
