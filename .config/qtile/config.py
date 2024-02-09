@@ -169,7 +169,7 @@ layouts = [
 ]
 
 widget_defaults = dict(
-    font="Inconsolata NF",
+    font="Ubuntu Nerd Font,Ubuntu Nerd Font Med",
     fontsize=16,
     padding=3,
 )
