@@ -209,3 +209,4 @@ include ~/.config/sway/config.d/*
 # exec --no-startup-id dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
 exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 exec --no-startup-id mako
+exec --no-startup-id udiskie 
