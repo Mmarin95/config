@@ -194,6 +194,26 @@ input type:touchpad {
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
+#
+# System mode:
+#
+# shutdown / restart / suspend...
+# set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
+set $mode_system System (l) lock, (e) logout, (r) reboot, (CTRL+s) shutdown
+mode "$mode_system" {
+	bindsym l exec --no-startup-id $lock, mode "default"
+	bindsym e exec --no-startup-id swaymsg exit, mode "default"
+	# bindsym s exec --no-startup-id $lock && systemctl suspend, mode "default"
+	# bindsym h exec --no-startup-id $lock && systemctl hibernate, mode "default"
+	bindsym r exec --no-startup-id systemctl reboot, mode "default"
+	bindsym CTRL+s exec --no-startup-id systemctl poweroff -i, mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym $mod+BackSpace mode "$mode_system"
+
+
 #
 # Resizing containers:
 #
