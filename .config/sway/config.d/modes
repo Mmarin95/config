@@ -1,0 +1,43 @@
+#
+# System mode:
+#
+# shutdown / restart / suspend...
+# set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
+set $mode_system System (l) lock, (e) logout, (r) reboot, (CTRL+s) shutdown
+mode "$mode_system" {
+	bindsym l exec --no-startup-id $lock, mode "default"
+	bindsym e exec --no-startup-id swaymsg exit, mode "default"
+	# bindsym s exec --no-startup-id $lock && systemctl suspend, mode "default"
+	# bindsym h exec --no-startup-id $lock && systemctl hibernate, mode "default"
+	bindsym r exec --no-startup-id systemctl reboot, mode "default"
+	bindsym CTRL+s exec --no-startup-id systemctl poweroff -i, mode "default"
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+bindsym $mod+BackSpace mode "$mode_system"
+
+
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
