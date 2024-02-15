@@ -23,7 +23,7 @@ set $term foot
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu wofi --show run
 # TODO: Add swaylock flags as needed and create the lock script to capture the screen and blur it
-set $lock swaylock
+set $lock sh ~/.config/sway/scripts/lock.sh
 
 ### Output configuration
 #
