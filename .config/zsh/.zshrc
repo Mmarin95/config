@@ -39,7 +39,9 @@ fi
 
 if [ "$(tty)" = "/dev/tty1" ];
 then
-    pgrep i3 || exec startx "$XDG_CONFIG_HOME/X11/.xinitrc"
+    if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+        exec sway
+    fi
 fi
 
 source $ZDOTDIR/scripts.sh
