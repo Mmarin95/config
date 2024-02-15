@@ -183,9 +183,12 @@ client.background        $base
 bar {
     position top
 
+    font pango:Ubuntu Nerd Font Mono 10
+
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    status_command i3status-rs
 
     colors {
     background         $base
@@ -197,7 +200,7 @@ bar {
     active_workspace   $base $base $blue
     inactive_workspace $base $base $surface1
     urgent_workspace   $base $base $surface1
-    binding_mode       $base $base $surface1
+    binding_mode       $base $base $yellow
   }
 }
 
