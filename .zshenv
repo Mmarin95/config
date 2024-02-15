@@ -13,3 +13,7 @@ export SAVEHIST=10000
 
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# For Electron +28 apps. Some apps like Code read the flags from its own file like code-flags.conf
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+
