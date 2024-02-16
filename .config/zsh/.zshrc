@@ -40,7 +40,12 @@ fi
 if [ "$(tty)" = "/dev/tty1" ];
 then
     if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-        exec sway
+        export QT_QPA_PLATFORM=wayland
+        # start sway
+        export XDG_CURRENT_DESKTOP=sway
+        export XDG_SESSION_DESKTOP=sway
+        exec sway -c ~/.config/sway/config
+        # exec sway
     fi
 fi
 
