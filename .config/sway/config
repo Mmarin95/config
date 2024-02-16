@@ -58,13 +58,17 @@ exec swayidle -w \
 # Window Configurations
 #
 for_window [shell="xwayland"] title_format "[XWayland] %title"
-for_window [window_role="pop-up"] floating enable
+for_window [window_role="About"] floating enable
 for_window [window_role="bubble"] floating enable
-for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Organizer"] floating enable
+for_window [window_role="page-info"] floating enable
+for_window [window_role="pop-up"] floating enable
 for_window [window_role="Preferences"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="toolbox"] floating enable
+for_window [window_role="webconsole"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
-for_window [window_role="About"] floating enable
 
 # TODO: Remove the border from the focused window? with this color seems bigger
 # target                 title     bg    text   indicator  border
@@ -88,6 +92,7 @@ bar {
     # The default just shows the current date and time.
     # status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
     status_command i3status-rs
+    strip_workspace_numbers yes
 
     colors {
         background         $base

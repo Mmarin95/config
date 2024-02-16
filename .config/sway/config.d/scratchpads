@@ -16,8 +16,8 @@ bindsym $mod+minus scratchpad show
 # htop scratchpad
 bindsym $mod+Shift+p exec (swaymsg "[app_id=htop_scratchpad] scratchpad show") || exec $term -a htop_scratchpad htop
 for_window [app_id="htop_scratchpad"] floating enable, \
-    border pixel 5, \
-    resize set 70 ppt 60 ppt, \
+    border pixel 2, \
+    resize set 80 ppt 60 ppt, \
     move position center, \
     move to scratchpad, \
     scratchpad show
@@ -25,8 +25,8 @@ for_window [app_id="htop_scratchpad"] floating enable, \
 # Empty scratchpad
 bindsym --to-code $mod+grave exec (swaymsg "[app_id=dropdown] scratchpad show") || exec $term -a dropdown
 for_window [app_id="dropdown"] floating enable, \
-    border pixel 5, \
-    resize set 70 ppt 60 ppt, \
+    border pixel 2, \
+    resize set 80 ppt 60 ppt, \
     move position center, \
     move to scratchpad, \
     scratchpad show
